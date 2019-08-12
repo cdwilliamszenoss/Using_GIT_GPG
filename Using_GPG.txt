@@ -1,0 +1,96 @@
+
+https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages 
+https://help.github.com/en/articles/generating-a-new-gpg-key
+https://infertux.com/posts/2013/11/03/how-to-remove-an-email-address-from-a-gpg-key/
+
+
+How Public Key Encryption Works
+- To secure communication between two parties, a public key is exchanged between them.
+- The public key is used to encrypt messages and the private key is used to decrypt the messages
+
+Generate new key pair
+- gpg --full-generate-key
+
+
+List secret keys for account
+- gpg --list-secret-keys --keyid-format LONG Tyler
+
+Export secret key
+- gpg --export-secret-keys --armor 3AA5C34371567BD2 > secret.asc
+
+Export pubic key for account 
+- gpg --armor --export 3AA5C34371567BD2
+
+
+Import other users' Public keys
+- gpg --import name_of_pub_key_file
+
+
+Verify the Other Person's Identity (Will have to get the fingerprint from the other person)
+- gpg --fingerprint your_email@address.com [User]
+
+
+Sign Their Key
+- This means you trust their public key
+- gpg --sign-key email@example.com
+
+
+After signing their Public Key. You can set them their signed Public Key. (no needed)
+- gpg --output signed.key --export --armor email@example.com
+
+
+How to make your Public Key available
+- gpg --output mygpg.key --armor --export myemail@address.com
+
+
+Encrypt Message with GPG
+- This encrypts the message using the recipient's public key and signs it with your own private key
+- gpg --encrypt --sign --armor -r person@email.com name_of_file
+
+Decrypt Message with GPG
+- gpg file_name.asc
+
+
+
+Public Key to send to others to encrypt message:
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBF1Lcl8BCACxor6HFG4kuQhNP7CT4IjFbSnjlvrx2XaU8e7SbZwP4BTJlMYO
+eiBUVC96t9B8tlpXJQnxK22oOZboEU3C7Eva0zInSMB/VKc2bUz/rS3hYOOd9gM0
+GiKjngTyyfTelVpDT5qikCYTErv8Voyo64o6wyuKigTRJgi19zNlCd83mLebYWjB
+jQQFa3hxlnyeBxraA07oklZFD2kz6PHlxLMMzZ+zzHueCPyX/6SsPymKINZNZKbU
++VRJCE5DVDLeZPHT5B0fY04AfUdvECBPUVvf0ErWWMCSC1cGESxMA0A7FpCW8wVB
+pExnVkC92Q+XxH+fKmr+NqwEcJHLO7Wgm0npABEBAAG0BVR5bGVyiQFOBBMBCgA4
+FiEEbbTGjwrGDbxyPC54BiVBsJQFvcoFAl1Lcl8CGwMFCwkIBwMFFQoJCAsFFgID
+AQACHgECF4AACgkQBiVBsJQFvcoXuAf/fk86FlHDPdTIWUKrVPnMCuUe6KW64Mee
+0dvJ/u+J/eSgaPsTqLljnhSe2L9dpbUERPlfeV52iuNzWddzw5BjgXZBfxYoZs/W
+ua/92dSbK/iUtBJ31PrKkX6kytvHclP274+ScBevBw6t100pCR6UoJrpHIjJrp1Y
+Oxb8O2+jNYRLYo+p1krORMzGMokfCjZB3w9fmqUn0KXSCvlR5Fe9HCzl8Bvcf4KX
+t1JhAvuzZBZ5etFYl/Z392OrkA060T4tMioErF47YAXtpkPSq5MdL09NDhsc9Zi9
+c8fo2NuQrMm7E8A2wcS+tXWnxjAYwuLyr8U/YVw1N26VdG+Lr+9sXrkBDQRdS3Jf
+AQgAyMoQGp2O0VxVSm2KpiBzKEhbfSRdprSmMK71yMg7Zb+goTON8t7O9a9mWwR4
+0XAu9GN8aSEfqSUDM4mQw5phiDfWPFqd6Px2tRU5RUN5sChy1x9HBb2tTte2qkSp
+XEQ6JzyAuKOOGZYZMh3uOmrFF/2pr167ltNtUDh6sHz6aJNJdae1IMhIefvfF+EF
+Id3Ift6mqKAQfK7TheD1NctxdTmsuweVsYy7RvVVvmad8+Oz55ortnKuSqr3emcN
+uloDNng6vgWCLG5oYgBZkqMxZM0KYtnJq2JA5dVoYG6pQ7xYPXNAvddALbheBEhs
+M2jWwDfhPPOM370Ax103lfQwdwARAQABiQE2BBgBCgAgFiEEbbTGjwrGDbxyPC54
+BiVBsJQFvcoFAl1Lcl8CGwwACgkQBiVBsJQFvcoNPggAjJmhpuS65wGq09efQgfW
+OstpdEW4n6W0UQNt6D+ZOTZY5jTeEtuTWftkAboXpU087L2DSkiRlsJRf+gMNGKi
+XxDnpYjUq9MpllYZFqo4+iw9nY2X/It7+PT8aFw60FWeIKcYpN3EGFAmL5UMg2rB
+OfRR7xb3MrVppFFCEAHJdAAFRahlPnbucgL2aDc7NJlV27tt6bW0eJa9PXDHunUB
+NAAeji4hcOXxJItsX9Y6Q2fhslRnvB2iPkaTd5OEeJmnJL+6HogdQwxPYjWlXRKB
+KISZgZIZKXVA7D6gGKkgNRsUBrfotCtVbUM0Ca08fO/+hUrG/YH/SBgZm+QOTo0q
+Pg==
+=eBNf
+-----END PGP PUBLIC KEY BLOCK-----
+
+
+
+-Encrypted message for recipient. Need to have other person public key imported
+
+gpg --encrypt --armor --sign -r person_to_recieve_message@email.com <<EOF
+
+This is the body of the encrypted message
+
+EOF
