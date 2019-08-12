@@ -3,3 +3,6 @@ Using GIT
 
 
 Using GPG
+
+
+Using REGEX
