@@ -1,2 +1,3 @@
-# miscText
-General Information
+# General Information
+Using GIT
+Using GPG
