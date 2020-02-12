@@ -26,16 +26,41 @@ Branching
 Branches are used to develop features isolated from each other.
 The master branch is the default.
 
-1. To create a new branch and switch to it
+1. List all branches
+   git branch -a -v
+2. To create a new branch and switch to it
    git checkout -b new_branch
-2. Push branch to remote repository
+3. Push branch to remote repository
    git push origin new_branch  
-3. Switch back to master
+4. Switch back to master
    git checkout master
-4. Delete branch
+5. Delete branch
    git branch -d new_branch
+6. List tags - connect to tag - show info on tag - show tags with associated commits
+  git tag -n
+  git checkout tag_version
+  git show --name-only tag_version
+  git show-ref
+7. Show current selected tag
+  git describe --tags
 
+To see the difference between your working copy and staging area:
+% git diff
 
+Staging area and the latest commit:
+% git diff --staged
+
+Your working copy and commit 4ac0a6733:
+% git diff 4ac0a6733
+
+Commit 4ac0a6733 and the latest commit:
+% git diff 4ac0a6733 HEAD
+
+Commit 4ac0a6733 and commit 826793951
+% git diff 4ac0a6733 826793951
+
+  
+ 
 Setting up git on Remote Server
 
 1. su -
@@ -101,21 +126,4 @@ Force local repo to match remote
 3. git clean --dry-run -f (remove local files)  
 
 
----------
 
-To see the difference between:
-
-Your working copy and staging area:
-% git diff
-
-Staging area and the latest commit:
-% git diff --staged
-
-Your working copy and commit 4ac0a6733:
-% git diff 4ac0a6733
-
-Commit 4ac0a6733 and the latest commit:
-% git diff 4ac0a6733 HEAD
-
-Commit 4ac0a6733 and commit 826793951
-% git diff 4ac0a6733 826793951
