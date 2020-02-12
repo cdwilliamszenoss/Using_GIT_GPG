@@ -41,23 +41,21 @@ The master branch is the default.
   git checkout tag_version
   git show --name-only tag_version
   git show-ref
-7. Show current selected tag
+7. Show what refs are pointing to the currently checked out commit
+ git log --decorate
+8. Show current selected tag
   git describe --tags
+9. To see the difference between your working copy and staging area:
+  git diff
+10. Show diff between staging area and the latest commit:
+ git diff --staged
+11. Show diff between working copy and commit 4ac0a6733:
+ git diff 4ac0a6733
+12. Show diff between commit 4ac0a6733 and the latest commit:
+ git diff 4ac0a6733 HEAD
+13. Show diff between commit 4ac0a6733 and commit 826793951
+ git diff 4ac0a6733 826793951
 
-To see the difference between your working copy and staging area:
-% git diff
-
-Staging area and the latest commit:
-% git diff --staged
-
-Your working copy and commit 4ac0a6733:
-% git diff 4ac0a6733
-
-Commit 4ac0a6733 and the latest commit:
-% git diff 4ac0a6733 HEAD
-
-Commit 4ac0a6733 and commit 826793951
-% git diff 4ac0a6733 826793951
 
   
  
