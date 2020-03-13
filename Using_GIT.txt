@@ -1,5 +1,8 @@
-    git config --global user.name "Your Name"
-    git config --global user.email you@example.com
+Show git configuration
+
+git config --list
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
 
 After doing this, you may fix the identity used for this commit with:
 
@@ -10,6 +13,15 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/cwillenterprise/MyProject.git
 git push -u origin master
+
+
+To update orgin:
+  git remote remove origin
+Re-add
+  git remove add orgin https://github.com/cwillenterprise/My_New_Project.git
+
+To sync remote repo to local 
+  git pull <remote> <branch>
 
 ---
 
@@ -45,6 +57,9 @@ The master branch is the default.
  git log --decorate
 8. Show current selected tag
   git describe --tags
+  
+Use git diff before adding files  
+  
 9. To see the difference between your working copy and staging area:
   git diff
 10. Show diff between staging area and the latest commit:
@@ -81,15 +96,15 @@ Local machine
 'cwill@gmail.com'
 6.
   a. Remote Configuration new repo 
-   git remote add origin git@ungulate.cwillenterprise.com:my-project.git
+    git remote add origin git@ungulate.cwillenterprise.com:my-project.git
   b. Use to push existing local repo to server
-   git remote set-url origin git@ungulate.cwillenterprise.com:my-project.git
+    git remote set-url origin git@ungulate.cwillenterprise.com:my-project.git
   c. Show config file
     git config --list
-7. Create or copy files to my-project.git directory
-8. git status
-9. git add filename or git add -A
-10. git commit filename -m "Change comments"
+7.  Create or copy files to my-project.git directory
+8.  git status
+9.  git add filename or git add -A
+10. git commit [filename or leave blank] -m "Change comments"
 11. git log 
 12. Copy local repo to Remote server
     git push origin master
