@@ -72,6 +72,8 @@ Use git diff before adding files
  git diff 4ac0a6733 826793951
 
 
+Show changes on a commit
+ git show 617af4ef8ddee26c381ff213ed2a5fdb7b3fa5fb
   
  
 Setting up git on Remote Server
